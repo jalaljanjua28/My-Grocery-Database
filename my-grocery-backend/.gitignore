@@ -4,5 +4,5 @@ shopping_list.json
 result.json
 master_expired.json
 master_nonexpired.json
-.env
+# .env
 myenv/
