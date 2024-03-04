@@ -5,3 +5,4 @@ result.json
 master_expired.json
 master_nonexpired.json
 .env
+myenv/
