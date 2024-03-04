@@ -23,6 +23,7 @@ import pytesseract
 
 from flask import Flask, jsonify, request
 from flask_cors import CORS
+from dotenv import load_dotenv
 
 from dateparser.search import search_dates
 
@@ -37,9 +38,9 @@ os.environ["BUCKET_NAME"] = "grocery-bucket"
 storage_client = storage.Client.from_service_account_json(
     "my-grocery-home-745726ebbfac.json"
 )
-
+load_dotenv()
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
-
+print(OPENAI_API_KEY)
 # Check if the API key is available
 if OPENAI_API_KEY:
     # Set the OpenAI API key
