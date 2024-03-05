@@ -3,14 +3,7 @@
     <router-link to="/" style="text-decoration: none">
       <el-page-header content="Recipes"> </el-page-header>
     </router-link>
-    <el-card
-      style="
-        margin-top: 20px !important;
-        font-family: 'Inter', sans-serif;
-        background-color: #ffffffc9;
-        border-radius: 20px;
-      "
-    >
+    <el-card>
       <div class="nav-buttons">
         <router-link to="items-inventory" class="router_link">
           <el-button type="primary" size="x-small" plain>Items</el-button>

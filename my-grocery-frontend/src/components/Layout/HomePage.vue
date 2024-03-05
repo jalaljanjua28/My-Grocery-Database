@@ -16,11 +16,11 @@
       </router-link>
     </div>
     <div v-if="displayJokes">
-      <el-card v-for="(joke, index) in jokes" :key="index" class="joke-card">
-        <p style="font-size: x-large; color: black">
+      <el-card v-for="(joke, index) in jokes" :key="index">
+        <p class="joke-card">
           {{ joke["Food Joke"] }}
         </p>
-        <el-button type="info" @click="gptJokes()" plain
+        <el-button :loading="loading" type="info" @click="gptJokes()" plain
           >Generate Prompt</el-button
         >
       </el-card>
@@ -78,6 +78,7 @@ export default {
   },
   data() {
     return {
+      loading: false,
       outerActiveTab: null,
       jokes: [],
       displayJokes: false,
@@ -215,6 +216,7 @@ export default {
     },
     async gptJokes() {
       try {
+        this.loading = true;
         await fetch("/api/jokes-using-gpt", {
           method: "POST",
           headers: {
@@ -225,6 +227,7 @@ export default {
         const response = await fetch("/api/jokes-using-gpt");
         const data = await response.json();
         this.jokes = data.jokes;
+        this.loading = false;
         console.log("Jokes:", this.jokes);
         this.user_input = "";
       } catch (error) {

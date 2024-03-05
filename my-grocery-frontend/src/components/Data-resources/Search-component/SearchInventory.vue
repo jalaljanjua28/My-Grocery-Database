@@ -1,5 +1,5 @@
 <template>
-  <div style="margin-top: 15px; width: auto; margin-bottom: 20px">
+  <div style="">
     <el-input
       placeholder="Please input"
       v-model="searchQuery"
@@ -25,51 +25,62 @@
     >
       <div v-if="dialogTableVisible">
         <el-table :data="filteredItems">
-          <el-table-column
-            v-for="(item, index) in filteredItems"
-            :key="'item-' + index"
-          >
+          <el-table-column v-for="item in filteredItems" :key="item.id">
+            <template slot="header">Image</template>
             <template slot-scope="scope">
-              <el-table-column label="Image" prop="image">
-                <img
-                  :src="scope.row.image"
-                  :alt="scope.row.name"
-                  style="max-width: 100px"
-                />
-              </el-table-column>
-              <el-table-column label="Name" prop="name">
-                {{ scope.row.name }}
-              </el-table-column>
-              <el-table-column label="Price" prop="price">
-                {{ scope.row.price }}
-              </el-table-column>
-              <el-table-column label="Status" prop="status">
-                {{ scope.row.status }}
-              </el-table-column>
-              <el-table-column label="Expiry">
-                <span>{{ scope.row.date }} </span>
-                <br />
-                <span v-if="scope.row.expiry">{{ scope.row.expiry }}</span>
-                <span v-else>Days_left: {{ scope.row.days_left }}</span>
-              </el-table-column>
-              <el-table-column>
-                <el-row style="display: flex; text-align: center">
-                  <el-button
-                    type="success"
-                    icon="el-icon-plus"
-                    circle
-                    size="x-small"
-                    @click="addItem(scope.row)"
-                  ></el-button>
-                  <el-button
-                    type="danger"
-                    icon="el-icon-delete"
-                    circle
-                    size="x-small"
-                    @click="deleteItem(scope.row)"
-                  ></el-button>
-                </el-row>
-              </el-table-column>
+              <img
+                :src="scope.row.image"
+                :alt="scope.row.name"
+                style="max-width: 100px"
+              />
+            </template>
+          </el-table-column>
+
+          <el-table-column label="Name" prop="name">
+            <template slot-scope="scope">
+              {{ scope.row.name }}
+            </template>
+          </el-table-column>
+
+          <el-table-column label="Price" prop="price">
+            <template slot-scope="scope">
+              {{ scope.row.price }}
+            </template>
+          </el-table-column>
+
+          <el-table-column label="Status" prop="status">
+            <template slot-scope="scope">
+              {{ scope.row.status }}
+            </template>
+          </el-table-column>
+
+          <el-table-column label="Expiry">
+            <template slot-scope="scope">
+              <span>{{ scope.row.date }}</span>
+              <br />
+              <span v-if="scope.row.expiry">{{ scope.row.expiry }}</span>
+              <span v-else>Days_left: {{ scope.row.days_left }}</span>
+            </template>
+          </el-table-column>
+
+          <el-table-column>
+            <template slot-scope="scope">
+              <el-row style="display: flex; text-align: center">
+                <el-button
+                  type="success"
+                  icon="el-icon-plus"
+                  circle
+                  size="x-small"
+                  @click="addItem(scope.row)"
+                ></el-button>
+                <el-button
+                  type="danger"
+                  icon="el-icon-delete"
+                  circle
+                  size="x-small"
+                  @click="deleteItem(scope.row)"
+                ></el-button>
+              </el-row>
             </template>
           </el-table-column>
         </el-table>
@@ -239,46 +250,4 @@ export default {
 .el-input-group {
   width: 100% !important;
 }
-
-/* .item-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 10px;
-}
-
-.item-row {
-  border: 1px solid #ccc;
-}
-
-.item-image {
-  width: 100px;
-  padding: 10px;
-}
-
-.item-image img {
-  max-width: 100%;
-  height: auto;
-}
-
-.item-details {
-  padding: 10px;
-}
-
-.item-name,
-.item-price,
-.item-status,
-.item-dates,
-.item-date,
-.item-expiry {
-  margin-bottom: 10px;
-}
-
-.item-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 10px;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-} */
 </style>

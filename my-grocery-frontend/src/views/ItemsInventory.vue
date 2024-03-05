@@ -3,14 +3,7 @@
     <router-link to="/" style="text-decoration: none">
       <el-page-header content="Items Inventory"> </el-page-header>
     </router-link>
-    <el-card
-      style="
-        margin-top: 20px;
-        font-family: 'Inter', sans-serif;
-        background-color: #ffffffc9;
-        border-radius: 20px;
-      "
-    >
+    <el-card>
       <div class="nav-buttons">
         <router-link to="/recipes-page" class="router_link">
           <el-button type="warning" size="x-small" plain>Recipes</el-button>
@@ -31,7 +24,7 @@
       />
       <el-tabs
         :tab-position="tabPosition"
-        style="height: auto; background: lightgreen"
+        style="height: auto"
         v-model="outerActiveTab"
         @tab-click="handleOuterTabClick"
       >
@@ -153,7 +146,6 @@
           icon="el-icon-plus"
           size="small"
           @click="openDialog"
-          style="padding: 6px 10px; margin-top: 20px"
           plain
           >Add Item</el-button
         >

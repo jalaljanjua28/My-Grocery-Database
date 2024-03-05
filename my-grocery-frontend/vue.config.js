@@ -10,7 +10,7 @@ module.exports = {
   devServer: {
     proxy: {
       "/api": {
-        target: "http://localhost:8081",
+        target: "https://my-grocery-app-hlai3cv5za-uc.a.run.app",
         changeOrigin: true,
       },
     },

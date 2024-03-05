@@ -9,8 +9,7 @@ body {
   font-family: "Inter", sans-serif;
   /* Additional styles as needed */
 }
-
-.el-table th.el-table__cell > .cell {
+input .el-table th.el-table__cell > .cell {
   display: inline-block;
   box-sizing: border-box;
   position: relative;
@@ -32,7 +31,6 @@ body {
   text-align: center !important;
   font-size: 12px;
 }
-
 .el-button.is-circle {
   padding: 8px !important;
   border-radius: 100% !important;
@@ -71,10 +69,17 @@ body {
 .el-button--danger.is-plain {
   border: 3px solid !important;
 }
+.el-button--small {
+  padding: 6px 10px;
+  margin-top: 20px !important;
+  font-size: 16px;
+  border-radius: 3px;
+}
 .el-card {
+  margin-top: 20px !important;
   border-radius: 20px;
-  border: 1px solid black;
-  background-color: transparent;
+  border: 3px solid black;
+  background-color: #ffffffc9;
   overflow: hidden;
   color: #303133;
   transition: 0.3s;
@@ -111,6 +116,7 @@ body {
   width: 1px;
   height: max-content;
   white-space: nowrap;
+  font-size: 20px;
 }
 .el-input-group__append button.el-button,
 .el-input-group__append div.el-select .el-input__inner,
@@ -129,6 +135,9 @@ body {
   border-collapse: separate;
   border-spacing: 0;
   background-color: #fff;
+  margin-top: 15px;
+  width: auto;
+  margin-bottom: 20px;
 }
 .el-page-header__left {
   display: flex;
@@ -147,13 +156,14 @@ body {
   background-color: black;
 }
 .el-page-header__title {
-  font-size: x-large;
+  font-size: large;
   font-weight: 500;
 }
 .el-page-header {
   background: #ffffffc9;
   line-height: 45px;
   border-radius: 15px;
+  border: 3px solid black;
 }
 .el-collapse-item__content {
   padding-bottom: 25px;
@@ -174,7 +184,7 @@ h4 {
 }
 
 p {
-  font-size: 14px;
+  font-size: 15px;
   color: black;
 }
 strong {
@@ -184,7 +194,7 @@ strong {
 }
 .loading-indicator {
   text-align: center;
-  margin-top: 10px;
+  margin-top: 40px;
 }
 
 .suggestion-card {
@@ -206,8 +216,7 @@ strong {
   background: #ffffffc9 !important;
   height: 74px !important;
   font-family: "Inter", sans-serif !important;
-  border: 0px solid;
-  border-color: none;
+  border: 3px solid black;
   border-radius: 20px;
   width: 100%;
   padding: 0 15px !important;
@@ -273,6 +282,7 @@ strong {
   border-radius: 20px;
   margin-top: 20px;
   margin-bottom: 20px;
+  border: 3px solid black;
 }
 .footer1 {
   height: auto !important;
@@ -286,11 +296,24 @@ strong {
   left: 0;
   right: 0;
   font-family: "Inter", sans-serif !important;
+  border: 3px solid black;
+}
+.footer-column {
+  padding-left: 10px;
+  padding-right: 10px;
+  align-content: center;
+  flex-direction: column;
+  line-height: 10px;
 }
 
 .container {
   max-width: -webkit-fill-available;
   margin: 0 auto;
+}
+.joke-card {
+  font-size: x-large;
+  color: black;
+  font-weight: bolder;
 }
 .social-icons i {
   font-size: 24px;
@@ -307,6 +330,7 @@ strong {
   line-height: 70px;
   background: none;
   padding: 5px 0;
+  border: 3px solid black;
   color: #fff;
   text-align: center;
   position: relative;
@@ -385,6 +409,7 @@ strong {
 .el-form-item {
   margin-bottom: 15px;
 }
+
 .add-item-container {
   width: 100%;
   margin: 0 auto;
@@ -411,7 +436,7 @@ strong {
 }
 .el-collapse-item__content {
   padding-bottom: 25px;
-  font-size: 13px;
+  font-size: 15px;
   color: #303133;
   line-height: 2;
   background-color: transparent;
@@ -510,7 +535,17 @@ strong {
   border: 1px solid #ccc;
   margin-bottom: 10px;
 }
+.el-table {
+  width: 100% !important;
+  max-width: 100% !important;
+  font-size: 12px !important;
+}
 @media screen and (max-width: 440px) {
+  .joke-card {
+    font-size: large;
+    color: black;
+    font-weight: bolder;
+  }
   .el-dropdown-menu__item {
     padding: 5px 15px;
     font-size: 15px;
@@ -580,6 +615,10 @@ strong {
   .input-with-select {
     width: 100%;
   }
+  .el-input {
+    position: relative;
+    font-size: 10px;
+  }
   .el-table {
     width: 100% !important;
     max-width: 100% !important;
@@ -617,19 +656,19 @@ strong {
   strong {
     font-size: 10px;
   }
-  h4 {
+  /* h4 {
     font-weight: bolder;
     font-size: 10px;
     font: bolder;
     display: flex;
     justify-content: center;
     color: black;
-  }
-  h3 {
+  } */
+  /* h3 {
     font-size: 10px;
     font: bolder;
     color: black;
-  }
+  } */
   .el-icon-goods {
     font-size: xx-large !important;
     background: none !important;

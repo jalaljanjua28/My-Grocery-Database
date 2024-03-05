@@ -1,7 +1,7 @@
 <template>
-  <el-card style="margin-top: 10px">
+  <el-card>
     <el-collapse :accordion="true">
-      <div style="padding: 0px">
+      <div>
         <!-- Food Waste Reduction Suggestions Section -->
         <el-collapse-item title="Food Waste Reduction Suggestions">
           <div>
@@ -26,11 +26,7 @@
               </el-select>
             </el-input>
             <!-- Loading indicator -->
-            <div
-              v-if="loading"
-              class="loading-indicator"
-              style="margin-top: 40px"
-            >
+            <div v-if="loading" class="loading-indicator">
               <el-spinner></el-spinner>
             </div>
 
@@ -61,11 +57,7 @@
         <el-collapse-item title="Ethical Eating Suggestions">
           <div>
             <!-- Loading indicator -->
-            <div
-              v-if="loading"
-              class="loading-indicator"
-              style="margin-top: 40px"
-            >
+            <div v-if="loading" class="loading-indicator">
               <el-spinner></el-spinner>
             </div>
 
@@ -100,11 +92,7 @@
         <!-- Fun Facts Section -->
         <el-collapse-item title="Fun Facts">
           <div>
-            <div
-              v-if="loading"
-              class="loading-indicator"
-              style="margin-top: 40px"
-            >
+            <div v-if="loading" class="loading-indicator">
               <el-spinner></el-spinner>
             </div>
             <div v-if="displayFunFacts && !loading">
@@ -135,18 +123,15 @@
           </el-button>
         </el-collapse-item>
 
+        <!-- Cooking Tips Section -->
         <el-collapse-item title="Cooking Tips">
           <div>
-            <div
-              v-if="loading"
-              class="loading-indicator"
-              style="margin-top: 40px"
-            >
+            <div v-if="loading" class="loading-indicator">
               <el-spinner></el-spinner>
             </div>
             <div v-if="displayCookingTips && !loading">
               <div v-for="(tip, index) in cookingTips" :key="index">
-                <p><strong>Cooking Tips:</strong>{{ tip["Cooking Tip"] }}</p>
+                <p><strong>Cooking Tips: </strong>{{ tip["Cooking Tip"] }}</p>
               </div>
             </div>
             <div v-if="!cookingTips && !loading">
@@ -168,11 +153,7 @@
         <!-- Current Trends Section -->
         <el-collapse-item title="Current Trends">
           <div>
-            <div
-              v-if="loading"
-              class="loading-indicator"
-              style="margin-top: 40px"
-            >
+            <div v-if="loading" class="loading-indicator">
               <el-spinner></el-spinner>
             </div>
             <div v-if="displayCurrentTrends && !loading">
@@ -199,11 +180,7 @@
         <!-- Food Handling  Section -->
         <el-collapse-item title="Food Handling Advice">
           <div>
-            <div
-              v-if="loading"
-              class="loading-indicator"
-              style="margin-top: 40px"
-            >
+            <div v-if="loading" class="loading-indicator">
               <el-spinner></el-spinner>
             </div>
             <div v-if="displayFoodHandling && !loading">
@@ -255,11 +232,7 @@
               </el-select>
             </el-input>
             <!-- Loading indicator -->
-            <div
-              v-if="loading"
-              class="loading-indicator"
-              style="margin-top: 40px"
-            >
+            <div v-if="loading" class="loading-indicator">
               <el-spinner></el-spinner>
             </div>
             <div v-if="displayMood && !loading">
@@ -592,7 +565,6 @@ export default {
         const data = await response.json();
         this.currentTrends = data.Current_Trends;
         this.loading = false;
-
         console.log("Current_Trends:", this.currentTrends);
       } catch (error) {
         this.error = error.message;
@@ -641,7 +613,6 @@ export default {
         const data = await response.json();
         this.handlingadvice = data.food_handling_advice;
         this.loading = false;
-
         console.log("food_handling_advice:", this.handlingadvice);
       } catch (error) {
         this.error = error.message;
@@ -656,10 +627,8 @@ export default {
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
         }
-
         // Parse the JSON response
         const data = await response.json();
-
         // Check if the response contains the expected property
         if (data && data.Mood_Changer) {
           this.moodChangerSuggestions = data.Mood_Changer;
@@ -694,7 +663,6 @@ export default {
         console.log(data);
         this.moodChangerSuggestions = data.Mood_Changer;
         this.loading = false;
-
         console.log("Mood Changer:", this.moodChangerSuggestions);
       } catch (error) {
         console.error("Error fetching mood changer:", error);

@@ -3,7 +3,7 @@
     <router-link to="/" style="text-decoration: none">
       <el-page-header content="Account Page"> </el-page-header>
     </router-link>
-    <el-card style="margin-top: 20px; font-family: 'Inter', sans-serif">
+    <el-card>
       <el-container class="account-page">
         <el-header style="height: 0px">
           <h1 class="header-title">My Account</h1>

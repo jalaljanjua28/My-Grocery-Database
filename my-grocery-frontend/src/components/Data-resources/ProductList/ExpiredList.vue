@@ -1,6 +1,6 @@
 <template>
   <div>
-    <el-table :data="items" style="width: 100%">
+    <el-table :data="items">
       <el-table-column label="Image" prop="image">
         <template slot-scope="scope">
           <img

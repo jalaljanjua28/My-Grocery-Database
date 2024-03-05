@@ -2739,17 +2739,30 @@ def process_text(text, kitchen_items, nonfood_items, irrelevant_names):
 
     for index, row in df_new2.iterrows():
         # Split the item name using either space or period as the delimiter and convert them to lowercase
-        item_words = re.split(r"[ .]", row["Name"].lower())
-
-        # Split kitchen_items into individual words and convert them to lowercase
-        kitchen_words = [
-            word.lower() for phrase in kitchen_items for word in phrase.split()
-        ]
-
-        # Check each word in the item name against each word in kitchen_items
-        if any(word in kitchen_words for word in item_words):
-            # If any word in the item name matches any word in kitchen_items, add the row to df_kitchen
-            df_kitchen = df_kitchen._append(row)
+        item_words = re.split(r'[ .]', row["Name"].lower())
+       
+        # Initialize variables to keep track of the best match found so far
+        best_match_score = 0
+        best_kitchen_item = None
+       
+        # Iterate through each kitchen item and calculate the match score
+        for kitchen_item in kitchen_items:
+            kitchen_words = [word.lower() for word in kitchen_item.split()]
+            match_score = sum(word in kitchen_words for word in item_words)
+           
+            # Update the best match if the current score is higher
+            if match_score > best_match_score:
+                best_match_score = match_score
+                best_kitchen_item = kitchen_item  # Assign the best matching kitchen item
+       
+        # If there was a match found, append the row to df_kitchen with updated "Name" column
+        if best_kitchen_item is not None:
+            # Create a new row with the updated "Name" column
+            updated_row = row.copy()
+            updated_row["Name"] = best_kitchen_item
+           
+            # Append the updated row to df_kitchen
+            df_kitchen = df_kitchen._append(updated_row, ignore_index=True)
         else:
             # If no match was found. # Check each word in the item name against each word in non_Food_items
             non_Food_words = [

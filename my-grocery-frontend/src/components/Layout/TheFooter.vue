@@ -12,16 +12,7 @@
             <p>123 Street, City</p>
             <p>Phone: 123-456-7890</p>
           </el-col>
-          <el-col
-            :span="8"
-            style="
-              padding-left: 10px;
-              padding-right: 10px;
-              align-content: center;
-              flex-direction: column;
-              line-height: 10px;
-            "
-          >
+          <el-col :span="8" class="footer-column">
             <h4>Follow Us</h4>
             <p>Linkedin</p>
             <p>Twitter</p>
