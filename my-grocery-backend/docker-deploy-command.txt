@@ -1,5 +1,0 @@
-docker build -t my-grocery-app .
-docker tag my-grocery-app:latest gcr.io/my-world-app-385006/my-grocery-app:latest
-gcloud auth configure-docker
-docker push gcr.io/my-world-app-385006/my-grocery-app:latest
-gcloud run deploy my-world-app --image gcr.io/my-world-app-385006/my-grocery-app --platform managed
