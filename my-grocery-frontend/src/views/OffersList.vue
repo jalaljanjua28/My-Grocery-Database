@@ -3,11 +3,7 @@
     :interval="4000"
     type="card"
     height="370px"
-    style="
-      font-family: 'Inter', sans-serif;
-      overflow-x: auto;
-      margin-bottom: 20px;
-    "
+    style="overflow-x: auto; margin-bottom: 20px"
   >
     <el-carousel-item class="offer-page" v-for="item in items" :key="item.id">
       <div class="offer-item">

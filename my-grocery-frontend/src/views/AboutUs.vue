@@ -3,7 +3,7 @@
     <router-link to="/" style="text-decoration: none">
       <el-page-header content="About us"> </el-page-header>
     </router-link>
-    <el-container class="profile-page" style="font-family: 'Inter', sans-serif">
+    <el-container class="profile-page">
       <el-main>
         <el-row :gutter="20" style="margin-top: 30px">
           <el-col :span="12">

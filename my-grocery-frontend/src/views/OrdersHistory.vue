@@ -3,7 +3,7 @@
     <router-link to="/" style="text-decoration: none">
       <el-page-header content="Order History"> </el-page-header>
     </router-link>
-    <el-card style="margin-top: 20px; font-family: 'Inter', sans-serif">
+    <el-card>
       <el-container class="order-page">
         <el-header>
           <h1 class="header-title">My Orders</h1>

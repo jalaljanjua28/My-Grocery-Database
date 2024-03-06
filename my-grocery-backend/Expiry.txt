@@ -1,5 +1,5 @@
-ORANGE JUICE ,20
-Shan,31
+ORANGE JUICE,20
+Shan,5
 RICE CRACKERS SALT,28
 PLAIN MARGARINE,13
 Masala,15
@@ -110,7 +110,7 @@ Mandarin Oranges,16
 Mangos,13
 Mango,28
 Meat,15
-milk,45
+milk,30
 Mulberries,47
 Mushrooms,47
 Napa,20
