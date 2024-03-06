@@ -1,0 +1,64 @@
+steps:
+  # Frontend build
+  # Install dependencies and build frontend
+  - name: "node:18"
+    entrypoint: "npm"
+    args: ["install"]
+    dir: "../My-Grocery-Home/my-grocery-frontend" # Specify the directory containing your frontend code
+
+  # Build frontend
+  - name: "node:18"
+    entrypoint: "npm"
+    args: ["run", "build"]
+    dir: "../My-Grocery-Home/my-grocery-frontend" # Specify the directory containing your frontend code
+
+  # Deploy to App Engine
+  - name: "gcr.io/cloud-builders/gcloud"
+    args:
+      [
+        "app",
+        "deploy",
+        "app.yaml",
+        "--project=my-grocery-home",
+        "--version=auto",
+      ]
+    dir: "../My-Grocery-Home/my-grocery-frontend"
+
+  # Backend build
+  # Build the Docker image
+  - name: "gcr.io/cloud-builders/docker"
+    args: ["build", "-t", "my-grocery-app", "."]
+    dir: "../My-Grocery-Home/my-grocery-backend"
+
+  # Tag the image
+  - name: "gcr.io/cloud-builders/docker"
+    args:
+      [
+        "tag",
+        "my-grocery-app:latest",
+        "gcr.io/my-grocery-home/my-grocery-app:latest",
+      ]
+
+  # Configure docker authentication
+  - name: "gcr.io/cloud-builders/gcloud"
+    args: ["auth", "configure-docker"]
+
+  # Push the image to Container Registry
+  - name: "gcr.io/cloud-builders/docker"
+    args: ["push", "gcr.io/my-grocery-home/my-grocery-app:latest"]
+
+  # Deploy to Cloud Run
+  - name: "gcr.io/cloud-builders/gcloud"
+    args:
+      - "run"
+      - "deploy"
+      - "my-grocery-app" # Updated service name
+      - "--image"
+      - "gcr.io/my-grocery-home/my-grocery-app:latest"
+      - "--platform"
+      - "managed"
+      - "--region"
+      - "us-central1"
+
+images:
+  - "gcr.io/my-grocery-home/my-grocery-app:latest"
