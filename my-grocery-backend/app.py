@@ -1670,6 +1670,7 @@ def update_master_nonexpired_item_expiry():
                 expiry_date = datetime.strptime(item["Expiry_Date"], "%d/%m/%Y")
                 new_expiry_date = expiry_date + timedelta(days=days_to_extend)
                 item["Expiry_Date"] = new_expiry_date.strftime("%d/%m/%Y")
+                item['Days Until Expiry'] += days_to_extend 
                 item["Status"] = "Not Expired"
                 break
 
@@ -1685,7 +1686,8 @@ def update_master_nonexpired_item_expiry():
     json_blob_name = f"{folder_name}/master_nonexpired.json"
     json_blob = bucket.blob(json_blob_name)
     json_blob.upload_from_string(json.dumps(response), content_type="application/json")
-    update_expiry_database_user_defined(days_to_extend, item_name)
+    # Call the function with your input and output file paths
+    update_expiry_database_user_defined(days_to_extend, item_name)    
     # You can return a success response as JSON
     return jsonify({"message": "Expiry updated successfully"})
 
@@ -1695,7 +1697,7 @@ def update_expiry_database_user_defined(days_to_extend, item_name):
     item_name = data["item_name"]
     days_to_extend = data["days_to_extend"]
     # Step 1: Read and Process the Text File
-    with open("Expiry.txt", "r") as file:
+    with open("items.txt", "r") as file:
         lines = file.readlines()
 
     products = [line.strip().split(",") for line in lines]
@@ -1706,10 +1708,9 @@ def update_expiry_database_user_defined(days_to_extend, item_name):
             products[i] = (name, str(days_to_extend))
             break
     # Step 4: Write Updated Data Back to Text File
-    with open("Expiry.txt", "w") as file:
+    with open("items.txt", "w") as file:
         for name, days in products:
             file.write(f"{name},{days}\n")
-
 
 
 # Get List of master_expired master_nonexpired and shopping_list
@@ -2644,7 +2645,7 @@ def process_text(text, kitchen_items, nonfood_items, irrelevant_names):
         # Add expiry date and status column
 
         # Upload expiry database
-        expiry_df = pd.read_csv("Expiry.txt", header=None, names=["Name", "Expiry"])
+        expiry_df = pd.read_csv("items.txt", header=None, names=["Name", "Expiry"])
 
         df_new2["Expiry"] = df_new2["Name"].apply(
             lambda x: expiry_df[
