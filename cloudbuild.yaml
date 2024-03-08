@@ -17,7 +17,7 @@ steps:
     args: [
         "app",
         "deploy",
-        "my-grocery-frontend/app.yaml", # Path to the generated app.yaml
+        "app.yaml", # Path to the generated app.yaml
         "--project=my-grocery-home",
         "--version=auto",
       ]
