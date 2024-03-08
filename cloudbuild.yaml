@@ -12,17 +12,14 @@ steps:
     args: ["run", "build"]
     dir: "my-grocery-frontend" # Specify the directory containing your frontend code
 
-  # Copy app.yaml to frontend directory
-  - name: "gcr.io/google.com/cloudsdktool/cloud-sdk:latest"
-    entrypoint: "gcloud"
-    args:
-      [
+  # Generate app.yaml in frontend directory
+  - name: "gcr.io/cloud-builders/gcloud"
+    args: [
         "beta",
         "app",
         "gen-config",
         "--custom",
-        "--output-dir",
-        "my-grocery-frontend",
+        "--output-dir=my-grocery-frontend", # Specify the output directory
       ]
 
   # Deploy to App Engine
@@ -35,6 +32,8 @@ steps:
         "--version=auto",
       ]
     dir: "my-grocery-frontend"
+
+  # Backend build and deployment steps...
 
   # Backend build and deployment steps...
 
