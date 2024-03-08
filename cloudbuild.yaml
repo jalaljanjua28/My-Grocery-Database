@@ -12,17 +12,23 @@ steps:
     args: ["run", "build"]
     dir: "my-grocery-frontend" # Specify the directory containing your frontend code
 
-  # Deploy to App Engine
+  # Copy app.yaml to frontend directory
   - name: "gcr.io/cloud-builders/gcloud"
     args:
-      [
+      ["app", "gen-config", "--custom", "--output-dir", "my-grocery-frontend"]
+
+  # Deploy to App Engine
+  - name: "gcr.io/cloud-builders/gcloud"
+    args: [
         "app",
         "deploy",
-        "app.yaml",
+        "my-grocery-frontend/app.yaml", # Path to the generated app.yaml
         "--project=my-grocery-home",
         "--version=auto",
       ]
     dir: "my-grocery-frontend"
+
+  # Backend build and deployment steps...
 
   # Backend build
   # Build the Docker image
