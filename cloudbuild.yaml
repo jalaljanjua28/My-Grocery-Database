@@ -16,6 +16,7 @@ steps:
         "app",
         "deploy",
         "app.yaml", # Path to the generated app.yaml
+        "--quiet",
         "--project=my-grocery-home",
         "--version=auto",
       ]
