@@ -3,12 +3,12 @@ steps:
   # Install dependencies and build frontend
   - name: "gcr.io/cloud-builders/npm"
     args: ["install"]
-    dir: "My-Grocery-Database/my-grocery-frontend" # Specify the directory containing your frontend code
+    dir: "my-grocery-frontend" # Specify the directory containing your frontend code
 
   # Build frontend
   - name: "gcr.io/cloud-builders/npm"
     args: ["run", "build"]
-    dir: "My-Grocery-Database/my-grocery-frontend" # Specify the directory containing your frontend code
+    dir: "my-grocery-frontend" # Specify the directory containing your frontend code
 
   # Deploy to App Engine
   - name: "gcr.io/cloud-builders/gcloud"
@@ -20,7 +20,7 @@ steps:
         "--project=my-grocery-home",
         "--version=auto",
       ]
-    dir: "My-Grocery-Database/my-grocery-frontend"
+    dir: "my-grocery-frontend"
     timeout: "1600s"
 
   # Backend build and deployment steps...
@@ -29,7 +29,7 @@ steps:
   # Build the Docker image
   - name: "gcr.io/cloud-builders/docker"
     args: ["build", "-t", "my-grocery-app", "."]
-    dir: "My-Grocery-Database/my-grocery-backend"
+    dir: "my-grocery-backend"
 
   # Tag the image
   - name: "gcr.io/cloud-builders/docker"
