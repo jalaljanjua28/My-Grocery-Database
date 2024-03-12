@@ -54,6 +54,16 @@ date_record = list()
 
 storage_client = storage.Client()
 
+# import logging
+
+# @app.before_request
+# def before_request_func():
+#     app.logger.info("Before request processing")
+
+# @app.after_request
+# def after_request_func(response):
+#     app.logger.info("After request processing")
+#     return response
 
 #                           ChatGpt Prompts Section
 # Homepage (cooking_tips, current_trends, ethical_eating_suggestions, food_waste_reductions,

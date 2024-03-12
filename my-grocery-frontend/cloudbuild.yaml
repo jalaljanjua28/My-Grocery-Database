@@ -1,0 +1,14 @@
+steps:
+  # Step to build the frontend
+  - name: "gcr.io/cloud-builders/npm"
+    args: ["install"]
+    dir: "my-grocery-frontend/"
+
+  - name: "gcr.io/cloud-builders/npm"
+    args: ["run", "build"]
+    dir: "my-grocery-frontend/"
+
+  # Step to deploy the frontend to App Engine
+  - name: "gcr.io/cloud-builders/gcloud"
+    args: ["app", "deploy", "--quiet", "app.yaml"]
+    timeout: "1600s"
