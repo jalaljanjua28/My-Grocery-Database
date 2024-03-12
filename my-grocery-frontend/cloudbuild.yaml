@@ -11,4 +11,5 @@ steps:
   # Step to deploy the frontend to App Engine
   - name: "gcr.io/cloud-builders/gcloud"
     args: ["app", "deploy", "--quiet", "app.yaml"]
+    dir: "my-grocery-frontend/"
     timeout: "1600s"
