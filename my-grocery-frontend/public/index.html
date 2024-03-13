@@ -3,19 +3,29 @@
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-    <link rel="icon" href="<%= BASE_URL %>favicon.ico" />
-    <title><%= htmlWebpackPlugin.options.title %></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="icon" href="/favicon.ico" />
+    <title>my-grocery-home</title>
+    <!-- Include basic CSS styles -->
+    <link href="/css/app.35f6a1e6.css" rel="stylesheet" />
   </head>
   <body>
+    <!-- Basic HTML content -->
+    <div id="app">
+      <h1>Welcome to my-grocery-home</h1>
+      <p>This is the basic content of the website.</p>
+    </div>
+
+    <!-- Load JavaScript bundle -->
+    <script src="/js/chunk-vendors.6f4c1ab8.js" defer></script>
+    <script src="/js/app.832553b0.js" defer></script>
+
+    <!-- NoScript fallback message -->
     <noscript>
       <strong
-        >We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work
-        properly without JavaScript enabled. Please enable it to
-        continue.</strong
+        >We're sorry but my-grocery-home requires JavaScript enabled. Please
+        enable it to continue.</strong
       >
     </noscript>
-    <div id="app"></div>
-    <!-- built files will be auto injected -->
   </body>
 </html>
