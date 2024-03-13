@@ -7,14 +7,14 @@ module.exports = {
       },
     },
   },
-  devServer: {
-    compress: true,
-    disableHostCheck: true,
-    proxy: {
-      "/api": {
-        target: "https://my-grocery-app-hlai3cv5za-uc.a.run.app",
-        changeOrigin: true,
-      },
-    },
-  },
+  // devServer: {
+  //   compress: true,
+  //   disableHostCheck: true,
+  //   proxy: {
+  //     "/api": {
+  //       target: "https://my-grocery-app-hlai3cv5za-uc.a.run.app",
+  //       changeOrigin: true,
+  //     },
+  //   },
+  // },
 };
