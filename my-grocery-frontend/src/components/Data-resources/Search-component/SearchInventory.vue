@@ -120,13 +120,16 @@ export default {
   },
   methods: {
     addItem(itemToAdd) {
-      fetch("/api/addItem/master-expired", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ itemName: itemToAdd.name }),
-      })
+      fetch(
+        "https://my-grocery-app-hlai3cv5za-uc.a.run.app/api/addItem/master-expired",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ itemName: itemToAdd.name }),
+        }
+      )
         .then((response) => response.json())
         .then((data) => {
           this.$message({
@@ -146,13 +149,16 @@ export default {
     },
     deleteItem(itemToDelete) {
       // Send a request to your backend to delete the item by its name
-      fetch("/api/removeItem/master-non-expired", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ itemName: itemToDelete.name }),
-      })
+      fetch(
+        "https://my-grocery-app-hlai3cv5za-uc.a.run.app/api/removeItem/master-non-expired",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ itemName: itemToDelete.name }),
+        }
+      )
         .then((response) => {
           if (response.status === 200) {
             this.$message({

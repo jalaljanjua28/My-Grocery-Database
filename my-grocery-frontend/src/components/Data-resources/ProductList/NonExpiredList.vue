@@ -96,13 +96,16 @@ export default {
     addItem(itemToAdd) {
       const userConfirmed = confirm("Are you sure you want to add items?");
       if (userConfirmed) {
-        fetch("/api/addItem/master-nonexpired", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ itemName: itemToAdd.name }),
-        })
+        fetch(
+          "https://my-grocery-app-hlai3cv5za-uc.a.run.app/api/addItem/master-nonexpired",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ itemName: itemToAdd.name }),
+          }
+        )
           .then((response) => response.json())
           .then(() => {
             this.itemName = ""; // Clear the input field
@@ -125,13 +128,16 @@ export default {
 
       if (userConfirmed) {
         // Send a request to your backend to delete the item by its name
-        fetch("/api/removeItem/master-nonexpired", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ itemName: itemToDelete.name }),
-        })
+        fetch(
+          "https://my-grocery-app-hlai3cv5za-uc.a.run.app/api/removeItem/master-nonexpired",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ itemName: itemToDelete.name }),
+          }
+        )
           .then((response) => {
             if (response.status === 200) {
               console.log(`Item '${itemToDelete.name}' deleted successfully.`);
@@ -162,7 +168,10 @@ export default {
         days_to_extend: this.form.days_to_extend,
       };
       axios
-        .post("/api/update-master-nonexpired-item-expiry", requestData)
+        .post(
+          "https://my-grocery-app-hlai3cv5za-uc.a.run.app/api/update-master-nonexpired-item-expiry",
+          requestData
+        )
         .then((response) => {
           console.log(response.data);
         })

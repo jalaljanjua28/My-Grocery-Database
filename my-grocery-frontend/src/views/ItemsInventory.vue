@@ -220,13 +220,16 @@ export default {
       this.dialogVisible = false;
     },
     master_expired() {
-      fetch("/api/get-master-expired", {
-        method: "GET",
-        mode: "cors",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      })
+      fetch(
+        "https://my-grocery-app-hlai3cv5za-uc.a.run.app/api/get-master-expired",
+        {
+          method: "GET",
+          mode: "cors",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      )
         .then((response) => {
           if (response.ok) {
             return response.json();
@@ -288,13 +291,16 @@ export default {
         });
     },
     shopping_list() {
-      fetch("/api/get-shopping-list", {
-        method: "GET",
-        mode: "cors",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      })
+      fetch(
+        "https://my-grocery-app-hlai3cv5za-uc.a.run.app/api/get-shopping-list",
+        {
+          method: "GET",
+          mode: "cors",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      )
         .then((response) => {
           if (response.ok) {
             return response.json();
@@ -360,13 +366,16 @@ export default {
     },
 
     master_nonexpired() {
-      fetch("/api/get-master-nonexpired", {
-        method: "GET",
-        mode: "cors",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      })
+      fetch(
+        "https://my-grocery-app-hlai3cv5za-uc.a.run.app/api/get-master-nonexpired",
+        {
+          method: "GET",
+          mode: "cors",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      )
         .then((response) => {
           if (response.ok) {
             return response.json();
@@ -446,12 +455,4 @@ export default {
 };
 </script>
 
-<style scoped>
-/* .el-button {
-  border: 2px solid #dcdfe6 !important;
-  text-align: center;
-  padding: 12px 20px;
-  font-size: 14px;
-  border-radius: 4px;
-} */
-</style>
+<style scoped></style>

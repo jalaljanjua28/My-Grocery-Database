@@ -55,7 +55,7 @@ export default {
         item_day_left: this.form.item_day_left,
       };
       axios
-        .post("/api", requestData)
+        .post("https://my-grocery-app-hlai3cv5za-uc.a.run.app/api", requestData)
         .then((response) => {
           this.$message({
             message: "Item Added Successfully",

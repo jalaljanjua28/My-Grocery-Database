@@ -292,12 +292,15 @@ export default {
   methods: {
     async getAllergyInformation() {
       try {
-        const response = await fetch("/api/allergy-information-using-json", {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        });
+        const response = await fetch(
+          "https://my-grocery-app-hlai3cv5za-uc.a.run.app/api/allergy-information-using-json",
+          {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
         console.log("API Response:", response);
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
@@ -316,19 +319,25 @@ export default {
         this.loading = true;
 
         // Send a POST request to generate the Fusion_Cuisine_Suggestions.json file
-        await fetch("/api/allergy-information-using-gpt", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({}),
-        });
-        const response = await fetch("/api/allergy-information-using-gpt", {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        });
+        await fetch(
+          "https://my-grocery-app-hlai3cv5za-uc.a.run.app/api/allergy-information-using-gpt",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({}),
+          }
+        );
+        const response = await fetch(
+          "https://my-grocery-app-hlai3cv5za-uc.a.run.app/api/allergy-information-using-gpt",
+          {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
         console.log("API Response:", response);
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
@@ -345,7 +354,9 @@ export default {
 
     async getHealthierAlternatives() {
       try {
-        const response = await fetch("/api/healthier-alternatives-using-json");
+        const response = await fetch(
+          "https://my-grocery-app-hlai3cv5za-uc.a.run.app/api/healthier-alternatives-using-json"
+        );
 
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
@@ -375,19 +386,25 @@ export default {
         this.loading = true;
 
         // Send a POST request to generate the Fusion_Cuisine_Suggestions.json file
-        await fetch("/api/healthier-alternatives-using-gpt", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({}),
-        });
-        const response = await fetch("/api/healthier-alternatives-using-gpt", {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        });
+        await fetch(
+          "https://my-grocery-app-hlai3cv5za-uc.a.run.app/api/healthier-alternatives-using-gpt",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({}),
+          }
+        );
+        const response = await fetch(
+          "https://my-grocery-app-hlai3cv5za-uc.a.run.app/api/healthier-alternatives-using-gpt",
+          {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
 
         console.log("API Response:", response);
 
@@ -409,7 +426,9 @@ export default {
 
     async getHealthyEatingAdvice() {
       try {
-        const response = await fetch("/api/healthy-eating-advice-using-json");
+        const response = await fetch(
+          "https://my-grocery-app-hlai3cv5za-uc.a.run.app/api/healthy-eating-advice-using-json"
+        );
 
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
@@ -438,19 +457,25 @@ export default {
         this.loading = true;
 
         // Send a POST request to generate the Fusion_Cuisine_Suggestions.json file
-        await fetch("/api/healthy-eating-advice-using-gpt", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({}),
-        });
-        const response = await fetch("/api/healthy-eating-advice-using-gpt", {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        });
+        await fetch(
+          "https://my-grocery-app-hlai3cv5za-uc.a.run.app/api/healthy-eating-advice-using-gpt",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({}),
+          }
+        );
+        const response = await fetch(
+          "https://my-grocery-app-hlai3cv5za-uc.a.run.app/api/healthy-eating-advice-using-gpt",
+          {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
 
         console.log("API Response:", response);
 
@@ -475,7 +500,9 @@ export default {
 
     async getHealthyItemsUsage() {
       try {
-        const response = await fetch("/api/healthy-items-usage-using-json");
+        const response = await fetch(
+          "https://my-grocery-app-hlai3cv5za-uc.a.run.app/api/healthy-items-usage-using-json"
+        );
 
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
@@ -504,19 +531,25 @@ export default {
         this.loading = true;
 
         // Send a POST request to generate the Fusion_Cuisine_Suggestions.json file
-        await fetch("/api/healthy-items-usage-using-gpt", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({}),
-        });
-        const response = await fetch("/api/healthy-items-usage-using-gpt", {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        });
+        await fetch(
+          "https://my-grocery-app-hlai3cv5za-uc.a.run.app/api/healthy-items-usage-using-gpt",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({}),
+          }
+        );
+        const response = await fetch(
+          "https://my-grocery-app-hlai3cv5za-uc.a.run.app/api/healthy-items-usage-using-gpt",
+          {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
 
         console.log("API Response:", response);
 
@@ -539,7 +572,7 @@ export default {
     async getHealthIncompatabilties() {
       try {
         const response = await fetch(
-          "/api/health_incompatibilities_using_json"
+          "https://my-grocery-app-hlai3cv5za-uc.a.run.app/api/health_incompatibilities_using_json"
         );
 
         if (!response.ok) {
@@ -572,15 +605,18 @@ export default {
         this.loading = true;
 
         // Send a POST request to generate the Fusion_Cuisine_Suggestions.json file
-        await fetch("/api/health_incompatibilities_using_gpt", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({}),
-        });
+        await fetch(
+          "https://my-grocery-app-hlai3cv5za-uc.a.run.app/api/health_incompatibilities_using_gpt",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({}),
+          }
+        );
         const response = await fetch(
-          "/api/health_incompatibilities_using_gpt",
+          "https://my-grocery-app-hlai3cv5za-uc.a.run.app/api/health_incompatibilities_using_gpt",
           {
             method: "GET",
             headers: {
@@ -612,7 +648,9 @@ export default {
 
     async getNutritionalAnalysis() {
       try {
-        const response = await fetch("/api/nutritional-analysis-using-json");
+        const response = await fetch(
+          "https://my-grocery-app-hlai3cv5za-uc.a.run.app/api/nutritional-analysis-using-json"
+        );
 
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
@@ -644,19 +682,25 @@ export default {
         this.loading = true;
 
         // Send a POST request to generate the Fusion_Cuisine_Suggestions.json file
-        await fetch("/api/nutritional-analysis-using-gpt", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({}),
-        });
-        const response = await fetch("/api/nutritional-analysis-using-gpt", {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        });
+        await fetch(
+          "https://my-grocery-app-hlai3cv5za-uc.a.run.app/api/nutritional-analysis-using-gpt",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({}),
+          }
+        );
+        const response = await fetch(
+          "https://my-grocery-app-hlai3cv5za-uc.a.run.app/api/nutritional-analysis-using-gpt",
+          {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
 
         console.log("API Response:", response);
 
@@ -678,7 +722,9 @@ export default {
 
     async getNutritionalValue() {
       try {
-        const response = await fetch("/api/nutritional-value-using-json");
+        const response = await fetch(
+          "https://my-grocery-app-hlai3cv5za-uc.a.run.app/api/nutritional-value-using-json"
+        );
 
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
@@ -707,19 +753,25 @@ export default {
         this.loading = true;
 
         // Send a POST request to generate the Fusion_Cuisine_Suggestions.json file
-        await fetch("/api/nutritional-value-using-gpt", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({}),
-        });
-        const response = await fetch("/api/nutritional-value-using-gpt", {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        });
+        await fetch(
+          "https://my-grocery-app-hlai3cv5za-uc.a.run.app/api/nutritional-value-using-gpt",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({}),
+          }
+        );
+        const response = await fetch(
+          "https://my-grocery-app-hlai3cv5za-uc.a.run.app/api/nutritional-value-using-gpt",
+          {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
 
         console.log("API Response:", response);
 

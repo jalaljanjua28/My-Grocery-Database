@@ -17,13 +17,16 @@ export default {
 
       if (userConfirmed) {
         // Make an HTTP POST request to your backend
-        fetch("/api/deleteAll/master-expired", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({}),
-        })
+        fetch(
+          "https://my-grocery-app-hlai3cv5za-uc.a.run.app/api/deleteAll/master-expired",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({}),
+          }
+        )
           .then((response) => response.json())
           .then((data) => {
             // Handle the response from the server if needed

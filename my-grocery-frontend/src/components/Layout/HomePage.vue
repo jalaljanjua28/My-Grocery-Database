@@ -111,13 +111,16 @@ export default {
   },
   methods: {
     purchased_list() {
-      fetch("/api/get-purchase-list", {
-        method: "GET",
-        mode: "cors",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      })
+      fetch(
+        "https://my-grocery-app-hlai3cv5za-uc.a.run.app/api/get-purchase-list",
+        {
+          method: "GET",
+          mode: "cors",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      )
         .then((response) => {
           if (response.ok) {
             return response.json();
@@ -199,7 +202,9 @@ export default {
     },
     async jsonJokes() {
       // Make a request to your backend endpoint
-      fetch("/api/jokes-using-json")
+      fetch(
+        "https://my-grocery-app-hlai3cv5za-uc.a.run.app/api/jokes-using-json"
+      )
         .then((response) => response.json())
         .then((data) => {
           if (data.jokes) {
@@ -217,14 +222,19 @@ export default {
     async gptJokes() {
       try {
         this.loading = true;
-        await fetch("/api/jokes-using-gpt", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({}),
-        });
-        const response = await fetch("/api/jokes-using-gpt");
+        await fetch(
+          "https://my-grocery-app-hlai3cv5za-uc.a.run.app/api/jokes-using-gpt",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({}),
+          }
+        );
+        const response = await fetch(
+          "https://my-grocery-app-hlai3cv5za-uc.a.run.app/api/jokes-using-gpt"
+        );
         const data = await response.json();
         this.jokes = data.jokes;
         this.loading = false;

@@ -14,7 +14,7 @@
     >
       <el-upload
         class="upload-demo"
-        action="/api/image-process-upload-create"
+        action="https://my-grocery-app-hlai3cv5za-uc.a.run.app/api/image-process-upload-create"
         ref="fileInput"
         :auto-upload="false"
         :on-change="onFileChange"
@@ -48,7 +48,8 @@ import axios from "axios";
 
 // Create a custom Axios instance with a progress event
 const axiosInstance = axios.create();
-axiosInstance.defaults.baseURL = "/api"; // Set your API base URL
+axiosInstance.defaults.baseURL =
+  "https://my-grocery-app-hlai3cv5za-uc.a.run.app/api"; // Set your API base URL
 
 export default {
   data() {
