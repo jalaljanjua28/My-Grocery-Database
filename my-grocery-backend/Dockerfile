@@ -9,7 +9,7 @@ COPY . ./
 
 # Copy service account JSON file
 COPY my-grocery-backend/my-grocery-home-745726ebbfac.json $APP_HOME
-COPY my-grocery-backend/my-grocery-home-745726ebbfac.json/.env $APP_HOME
+COPY .env $APP_HOME
 # Install production dependencies.
 RUN pip install Flask gunicorn
 RUN pip install -r requirements.txt
