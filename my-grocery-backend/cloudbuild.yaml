@@ -3,7 +3,7 @@ steps:
   # Build the Docker image
   - name: "gcr.io/cloud-builders/docker"
     args: ["build", "-t", "my-grocery-app", "."]
-
+    dir: "my-grocery-backend/"
   # Tag the image
   - name: "gcr.io/cloud-builders/docker"
     args:
